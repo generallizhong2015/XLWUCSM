@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database">
+  <description>访问数据库的配置</description>
+
+
+  <!--IBatisNet-->
+  <object id="sqlMapClient" type="IDataAccess.SqlMapClient,IDataAccess">
+    <property name="SqlMapConfig" value="Configs\ibatisconfig\SqlMapMySql.config"/>
+  </object>
+ 
+
+  <!--ApprDAL-->
+  <object id="ApprDAL" type="DAL.ApprDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--CusDAL-->
+  <object id="CusDAL" type="DAL.CusDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--CusOrgDAL-->
+  <object id="CusOrgDAL" type="DAL.CusOrgDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--MdlDAL-->
+  <object id="MdlDAL" type="DAL.MdlDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--NtcPubDAL-->
+  <object id="NtcPubDAL" type="DAL.NtcPubDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--PwrDAL-->
+  <object id="PwrDAL" type="DAL.PwrDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+  
+  <!--SordDAL-->
+  <object id="SordDAL" type="DAL.SordDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+  
+  <!--SordDtlDAL-->
+  <object id="SordDtlDAL" type="DAL.SordDtlDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+  
+  <!--SttCfgDAL-->
+  <object id="SttCfgDAL" type="DAL.SttCfgDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--TaskDealDAL-->
+  <object id="TaskDealDAL" type="DAL.TaskDealDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--UserPwrDAL-->
+  <object id="UserPwrDAL" type="DAL.UserPwrDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--UsersDAL-->
+  <object id="UsersDAL" type="DAL.UsersDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <!--UserCusDAL-->
+  <object id="UserCusDAL" type="DAL.UserCusDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+  <object id="CusApprDAL" type="DAL.CusApprDAL,DAL">
+    <property name="SqlMapClient" ref="sqlMapClient"/>
+  </object>
+
+</objects>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="mdl_map" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="MDL" assembly="Models.dll" type="Models.MDL" />
+  </alias>
+  <resultMaps>
+    <resultMap id="mdl_result" class="MDL">   
+      		<result property="MDLID" column="MDLID"/>
+			<result property="MDLNAME" column="MDLNAME"/>
+			<result property="PRTID" column="PRTID"/>
+			<result property="LVL" column="LVL"/>
+			<result property="MDLTYP" column="MDLTYP"/>
+			<result property="SEQNO" column="SEQNO"/>
+			<result property="ISSTP" column="ISSTP"/>
+			<result property="MDLVER" column="MDLVER"/>
+			<result property="FUNGRP" column="FUNGRP"/>
+			<result property="BRF" column="BRF"/>
+	</resultMap>
+  </resultMaps>
+  
+  <statements>
+      <select id="mdl_select" parameterClass="System.Collections.IDictionary" resultClass="MDL">
+        select MDLID,MDLNAME,PRTID,LVL,MDLTYP,SEQNO,ISSTP,MDLVER,FUNGRP,BRF from mdl
+        where 1=1
+        <isNotEmpty prepend="AND" property="MDLID">
+         MDLID=#MDLID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="ISSTP">
+          ISSTP=#ISSTP#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="MDLTYP">
+          MDLTYP=#MDLTYP#
+        </isNotEmpty>
+      </select>
+      <insert id="mdl_insert" parameterClass="MDL">
+        insert into mdl
+        (MDLID,MDLNAME,PRTID,LVL,MDLTYP,SEQNO,ISSTP,MDLVER,FUNGRP,BRF)
+        values(#MDLID#,#MDLNAME#,#PRTID#,#LVL#,#MDLTYP#,#SEQNO#,#ISSTP#,#MDLVER#,#FUNGRP#,#BRF#)
+      </insert>
+      <update id="mdl_update" parameterClass="MDL">
+        update mdl
+        set MDLID=#MDLID#,MDLNAME=#MDLNAME#,PRTID=#PRTID#,LVL=#LVL#,MDLTYP=#MDLTYP#,SEQNO=#SEQNO#,ISSTP=#ISSTP#,MDLVER=#MDLVER#,FUNGRP=#FUNGRP#,BRF=#BRF#
+        where MDLID=#MDLID#
+      </update>
+      <delete id="mdl_delete" parameterClass="MDL">
+        delete from mdl
+        where MDLID=#MDLID#
+       </delete>
+  </statements>
+</sqlMap>

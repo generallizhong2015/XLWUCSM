@@ -1,0 +1,8 @@
+D:\新留言平台\Source\WUCSM\Common.Model\bin\Debug\Common.Model.dll
+D:\新留言平台\Source\WUCSM\Common.Model\bin\Debug\Common.Model.pdb
+D:\新留言平台\Source\WUCSM\Common.Model\obj\Debug\Common.Model.dll
+D:\新留言平台\Source\WUCSM\Common.Model\obj\Debug\Common.Model.pdb
+F:\zy\httpd\MySQL\WUCSM\Common.Model\bin\Debug\Common.Model.dll
+F:\zy\httpd\MySQL\WUCSM\Common.Model\bin\Debug\Common.Model.pdb
+F:\zy\httpd\MySQL\WUCSM\Common.Model\obj\Debug\Common.Model.dll
+F:\zy\httpd\MySQL\WUCSM\Common.Model\obj\Debug\Common.Model.pdb

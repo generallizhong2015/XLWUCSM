@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="users_map" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="users" assembly="Models.dll" type="Models.USERS" />
+  </alias>
+  <resultMaps>
+    <resultMap id="users_result" class="users">
+
+      <result property="USERID" column="USERID"/>
+      <result property="USERNAME" column="USERNAME"/>
+      <result property="LOGID" column="LOGID"/>
+      <result property="CUSID" column="CUSID"/>
+      <result property="CUSORGID" column="CUSORGID"/>
+      <result property="SEX" column="SEX"/>
+      <result property="DPT" column="DPT"/>
+      <result property="PSTN" column="PSTN"/>
+      <result property="IDNO" column="IDNO"/>
+      <result property="ADR" column="ADR"/>
+      <result property="OTEL" column="OTEL"/>
+      <result property="ITEL" column="ITEL"/>
+      <result property="MOVTEL" column="MOVTEL"/>
+      <result property="EMAIL" column="EMAIL"/>
+      <result property="QQ" column="QQ"/>
+      <result property="PWD" column="PWD"/>
+      <result property="CHKVU" column="CHKVU"/>
+      <result property="USERTYP" column="USERTYP"/>
+      <result property="STT" column="STT"/>
+      <result property="FNDPWDVLD" column="FNDPWDVLD"/>
+      <result property="PIC" column="PIC"/>
+      <result property="ISSYS" column="ISSYS"/>
+      <result property="CUSNAME" column="CUSNAME"/>
+      <result property="CUSORGNAME" column="CUSORGNAME"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+
+    <select id="users_select" parameterClass="System.Collections.IDictionary" resultClass="users">
+      select USERID,USERNAME,LOGID,CUSID,CUSORGID,SEX,DPT,PSTN,IDNO,ADR,OTEL,ITEL,MOVTEL,EMAIL,QQ,PWD,CHKVU,USERTYP,STT,FNDPWDVLD,PIC,ISSYS,
+      (select c.cusname from cus c where c.cusid=u.cusid) as CUSNAME,
+      (select co.cusorgname from cusorg co where co.cusid=u.cusid and co.cusorgid=u.CUSORGID) as CUSORGNAME
+      from users u
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="USERID">
+          USERID=#USERID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="USERNAME">
+          USERNAME LIKE '%$USERNAME$%'
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="LOGID">
+          LOGID IN(#LOGID#)
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSID">
+          <!--CUSID=#CUSID#-->
+          CUSID  LIKE '%$CUSID$%'
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSORGID">
+          CUSORGID=#CUSORGID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="SEX">
+          SEX=#SEX#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="USERTYP">
+          USERTYP=#USERTYP#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="STT">
+          STT=#STT#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="ISSYS">
+          ISSYS=#ISSYS#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="MOVTEL">
+          MOVTEL=#MOVTEL#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="EMAIL">
+          EMAIL=#EMAIL#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    <insert id="users_insert" parameterClass="users">
+      insert into users
+      (USERID,USERNAME,LOGID,CUSID,CUSORGID,SEX,DPT,PSTN,IDNO,ADR,OTEL,ITEL,MOVTEL,EMAIL,QQ,PWD,CHKVU,USERTYP,STT,FNDPWDVLD,PIC,ISSYS)
+      values(#USERID#,#USERNAME#,#LOGID#,#CUSID#,#CUSORGID#,#SEX#,#DPT#,#PSTN#,#IDNO#,#ADR#,#OTEL#,#ITEL#,#MOVTEL#,#EMAIL#,#QQ#,#PWD#,#CHKVU#,#USERTYP#,#STT#,#FNDPWDVLD#,#PIC#,#ISSYS#)
+    </insert>
+    <update id="users_update" parameterClass="users">
+      update users
+      set USERID=#USERID#,USERNAME=#USERNAME#,LOGID=#LOGID#,CUSID=#CUSID#,CUSORGID=#CUSORGID#,SEX=#SEX#,DPT=#DPT#,PSTN=#PSTN#,IDNO=#IDNO#,ADR=#ADR#,OTEL=#OTEL#,ITEL=#ITEL#,MOVTEL=#MOVTEL#,EMAIL=#EMAIL#,QQ=#QQ#,PWD=#PWD#,CHKVU=#CHKVU#,USERTYP=#USERTYP#,STT=#STT#,FNDPWDVLD=#FNDPWDVLD#,PIC=#PIC#,ISSYS=#ISSYS#
+      where USERID=#USERID#
+    </update>
+    <delete id="users_delete" parameterClass="users">
+      delete from users
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="USERID">
+          USERID=#USERID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="LOGID">
+          LOGID=#LOGID#
+        </isNotEmpty>
+      </dynamic>
+    </delete>
+
+    <!--<select id="usersbylogid_select" parameterClass="System.Collections.IDictionary" resultClass="users">
+      select USERID,USERNAME,LOGID,CUSID,CUSORGID,SEX,DPT,PSTN,IDNO,ADR,OTEL,ITEL,MOVTEL,EMAIL,QQ,PWD,CHKVU,USERTYP,STT,FNDPWDVLD,PIC,ISSYS from users
+      where 1=1 AND LOGID=#LOGID#
+    </select>
+
+    <select id="usersbycusid_select" parameterClass="System.Collections.IDictionary" resultClass="users">
+      select USERID,USERNAME,LOGID,CUSID,CUSORGID,SEX,DPT,PSTN,IDNO,ADR,OTEL,ITEL,MOVTEL,EMAIL,QQ,PWD,CHKVU,USERTYP,STT,FNDPWDVLD,PIC,ISSYS from users
+      where USERTYP='02' AND CUSID=#CUSID#
+    </select>-->
+
+    <select id="getmaxid" parameterClass="System.Collections.IDictionary" resultClass="String">
+      select max(USERID) as M_USERID from users
+    </select>
+
+
+
+    <select id="users_selectlike" parameterClass="System.Collections.IDictionary" resultClass="users">
+      select USERID,USERNAME,LOGID,CUSID,CUSORGID,SEX,DPT,PSTN,IDNO,ADR,OTEL,ITEL,MOVTEL,EMAIL,QQ,PWD,CHKVU,USERTYP,STT,FNDPWDVLD,PIC,ISSYS,
+      (select c.cusname from cus c where c.cusid=u.cusid) as CUSNAME,
+      (select co.cusorgname from cusorg co where co.cusid=u.cusid and co.cusorgid=u.CUSORGID) as CUSORGNAME
+      from users u
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="USERID">
+          USERID=#USERID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="USERNAME">
+          USERNAME LIKE '%$USERNAME$%'
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="LOGID">
+          LOGID LIKE '%$LOGID$%'
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSID">
+          CUSID  LIKE '%$CUSID$%'
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSORGID">
+          CUSORGID=#CUSORGID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="SEX">
+          SEX=#SEX#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="USERTYP">
+          USERTYP=#USERTYP#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="STT">
+          STT=#STT#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="ISSYS">
+          ISSYS=#ISSYS#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="MOVTEL">
+          MOVTEL=#MOVTEL#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="EMAIL">
+          EMAIL=#EMAIL#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    
+    
+    
+    
+    
+    
+    
+
+  </statements>
+</sqlMap>

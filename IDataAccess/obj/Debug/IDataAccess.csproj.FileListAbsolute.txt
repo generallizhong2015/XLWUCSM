@@ -1,0 +1,10 @@
+D:\新留言平台\Source\WUCSM\Server\bin\Debug\IDataAccess.dll
+D:\新留言平台\Source\WUCSM\Server\bin\Debug\IDataAccess.pdb
+D:\新留言平台\Source\WUCSM\IDataAccess\obj\Debug\IDataAccess.csprojResolveAssemblyReference.cache
+D:\新留言平台\Source\WUCSM\IDataAccess\obj\Debug\IDataAccess.dll
+D:\新留言平台\Source\WUCSM\IDataAccess\obj\Debug\IDataAccess.pdb
+F:\zy\httpd\MySQL\WUCSM\Server\bin\Debug\IDataAccess.dll
+F:\zy\httpd\MySQL\WUCSM\Server\bin\Debug\IDataAccess.pdb
+F:\zy\httpd\MySQL\WUCSM\IDataAccess\obj\Debug\IDataAccess.csprojResolveAssemblyReference.cache
+F:\zy\httpd\MySQL\WUCSM\IDataAccess\obj\Debug\IDataAccess.dll
+F:\zy\httpd\MySQL\WUCSM\IDataAccess\obj\Debug\IDataAccess.pdb

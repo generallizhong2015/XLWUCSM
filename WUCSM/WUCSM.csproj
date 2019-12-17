@@ -1,0 +1,1233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F31CAD3-A354-47F0-876D-4E630499A579}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WUCSM</RootNamespace>
+    <AssemblyName>WUCSM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\DLL\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\DLL\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\DLL\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web">
+      <HintPath>..\DLL\Spring.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\WUCSM\Controllers\CusApprController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\CusController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\FastQueryController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\HappyController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\LoginController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\NtcPbuExternalController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\NtcPubController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\NtcPubViewController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\RegController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\SordController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\UploadController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\UserController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\UserCusController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\UserGrpController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\UserInfController.cs" />
+    <Compile Include="Areas\WUCSM\Controllers\ValidateCodeController.cs" />
+    <Compile Include="Areas\WUCSM\WUCSMAreaRegistration.cs" />
+    <Compile Include="Helpers\BaseController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ErrorLog.cs" />
+    <Compile Include="Helpers\HtmlPwrFilter.cs" />
+    <Compile Include="Helpers\MD5.cs" />
+    <Compile Include="Helpers\PwrFilterAttribute.cs" />
+    <Compile Include="Helpers\DateTimeConvert.cs" />
+    <Compile Include="Helpers\SendMailHelper.cs" />
+    <Compile Include="Helpers\WUCSMResult.cs" />
+    <Compile Include="Helpers\FormatJsonResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\FriendlyMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\JSONSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\SpringControllerFactory.cs" />
+    <Compile Include="Helpers\XcrmViewEngine.cs" />
+    <Compile Include="Masters\Base.Master.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\Base.Master.designer.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\BaseMdl.master.cs">
+      <DependentUpon>BaseMdl.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\BaseMdl.master.designer.cs">
+      <DependentUpon>BaseMdl.master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\WUCSM\Views\CusAppr\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\Cus\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\Error\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\Error\NoPwr.aspx" />
+    <Content Include="Areas\WUCSM\Views\Happy\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\Happy\Index.htm" />
+    <Content Include="Areas\WUCSM\Views\Happy\NewsYeas.aspx" />
+    <Content Include="Areas\WUCSM\Views\Happy\UptMis.aspx" />
+    <Content Include="Areas\WUCSM\Views\Login\CodeRetrievePassword.aspx" />
+    <Content Include="Areas\WUCSM\Views\Login\Login.aspx" />
+    <Content Include="Areas\WUCSM\Views\Login\RetrievePassword.aspx" />
+    <Content Include="Areas\WUCSM\Views\NtcPbuExternal\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\NtcPubView\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\NtcPub\NtcPubInternal.aspx" />
+    <Content Include="Areas\WUCSM\Views\Reg\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\EndSordInfo.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\External.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\Internal.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\NewSord.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\OrderOper.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\SordInfo.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\SordReply.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\SordReview.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\SordTrack.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\StartSordInfo.aspx" />
+    <Content Include="Areas\WUCSM\Views\Sord\UpdateSordInfo.aspx" />
+    <Content Include="Areas\WUCSM\Views\UserCus\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\UserGrp\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\UserGrp\UserPwr.aspx" />
+    <Content Include="Areas\WUCSM\Views\UserInf\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\User\Index.aspx" />
+    <Content Include="Areas\WUCSM\Views\User\UserPwr.aspx" />
+    <Content Include="Attachments\image\20160318\20160318161808_9855.png" />
+    <Content Include="Attachments\image\20160318\20160318161918_7345.png" />
+    <Content Include="Attachments\image\20160318\20160318162239_0440.png" />
+    <Content Include="Attachments\image\20160318\20160318162747_2606.png" />
+    <Content Include="Attachments\image\20160318\20160318162941_7102.png" />
+    <Content Include="Attachments\image\20160318\20160318164115_8659.png" />
+    <Content Include="Attachments\image\20160318\20160318164331_6446.png" />
+    <Content Include="Attachments\image\20160318\20160318164440_4316.png" />
+    <Content Include="Attachments\image\20160318\20160318164654_9203.png" />
+    <Content Include="Attachments\image\20160318\20160318164904_4817.png" />
+    <Content Include="Attachments\image\20160318\20160318165431_7374.png" />
+    <Content Include="Attachments\image\20160318\20160318170138_5458.png" />
+    <Content Include="Attachments\image\20160318\20160318170435_0609.png" />
+    <Content Include="Attachments\image\20160318\20160318170740_9595.png" />
+    <Content Include="Attachments\image\20160318\20160318170921_7983.png" />
+    <Content Include="Attachments\image\20160318\20160318171241_6787.png" />
+    <Content Include="Attachments\image\20160318\20160318171507_4531.png" />
+    <Content Include="Attachments\image\20160318\20160318171913_9832.png" />
+    <Content Include="Attachments\image\20160318\20160318172258_7990.png" />
+    <Content Include="Attachments\image\20160318\20160318172345_3757.png" />
+    <Content Include="Attachments\image\20160318\20160318172438_7047.png" />
+    <Content Include="Attachments\image\20160318\20160318174535_0966.png" />
+    <Content Include="Attachments\image\20160321\20160321091708_9149.png" />
+    <Content Include="Attachments\image\20160321\20160321092121_4307.png" />
+    <Content Include="Attachments\image\20160321\20160321092908_7801.png" />
+    <Content Include="Attachments\image\20160321\20160321093540_2755.png" />
+    <Content Include="Attachments\image\20160321\20160321093738_4074.png" />
+    <Content Include="Attachments\image\20160321\20160321094106_6670.png" />
+    <Content Include="Attachments\image\20160321\20160321094241_6000.png" />
+    <Content Include="Attachments\image\20160321\20160321094435_7316.png" />
+    <Content Include="Attachments\image\20160321\20160321111311_5582.png" />
+    <Content Include="Attachments\image\20160321\20160321111811_1081.png" />
+    <Content Include="Attachments\image\20160321\20160321112016_5916.png" />
+    <Content Include="Attachments\image\20160321\20160321112232_4336.png" />
+    <Content Include="Attachments\image\20160321\20160321112409_7008.png" />
+    <Content Include="Attachments\image\20160321\20160321112812_8875.png" />
+    <Content Include="Attachments\image\20160321\20160321115105_0077.png" />
+    <Content Include="Attachments\image\20160321\20160321115550_0286.png" />
+    <Content Include="Attachments\image\20160321\20160321115830_2156.png" />
+    <Content Include="Attachments\image\20160321\20160321120039_1641.png" />
+    <Content Include="Attachments\image\20160321\20160321120055_9037.png" />
+    <Content Include="Attachments\image\20160321\20160321120206_0122.png" />
+    <Content Include="Attachments\image\20160321\20160321120443_0390.png" />
+    <Content Include="Attachments\image\20160321\20160321120704_7854.png" />
+    <Content Include="Attachments\image\20160321\20160321120924_5358.png" />
+    <Content Include="Attachments\image\20160321\20160321121116_1089.png" />
+    <Content Include="Attachments\image\20160321\20160321121237_9583.png" />
+    <Content Include="Attachments\image\20160321\20160321121333_1108.png" />
+    <Content Include="Attachments\image\20160321\20160321143023_1840.png" />
+    <Content Include="Attachments\image\20160321\20160321143810_8498.png" />
+    <Content Include="Attachments\image\20160321\20160321143917_1432.png" />
+    <Content Include="Attachments\image\20160321\20160321151201_1167.png" />
+    <Content Include="Attachments\image\20160321\20160321151652_5385.png" />
+    <Content Include="Attachments\image\20160321\20160321152628_6999.png" />
+    <Content Include="Attachments\image\20160321\20160321152843_3475.png" />
+    <Content Include="Attachments\image\20160321\20160321153011_0280.png" />
+    <Content Include="Attachments\image\20160321\20160321153137_8653.png" />
+    <Content Include="Attachments\image\20160321\20160321153501_6986.png" />
+    <Content Include="Attachments\image\20160321\20160321153530_0626.png" />
+    <Content Include="Attachments\image\20160321\20160321154011_5465.png" />
+    <Content Include="Attachments\image\20160321\20160321154226_5973.png" />
+    <Content Include="Attachments\image\20160321\20160321154624_7507.png" />
+    <Content Include="Attachments\image\20160321\20160321160029_3109.png" />
+    <Content Include="Attachments\image\20160321\20160321160701_1352.png" />
+    <Content Include="Attachments\image\20160321\20160321160857_6775.png" />
+    <Content Include="Attachments\image\20160321\20160321161149_4608.png" />
+    <Content Include="Attachments\image\20160321\20160321161241_3059.png" />
+    <Content Include="Attachments\image\20160321\20160321161340_2627.png" />
+    <Content Include="Attachments\image\20160321\20160321162024_6783.png" />
+    <Content Include="Attachments\image\20160321\20160321162520_9679.png" />
+    <Content Include="Attachments\image\20160321\20160321163122_9832.png" />
+    <Content Include="Attachments\image\20160321\20160321163212_0903.png" />
+    <Content Include="Attachments\image\20160321\20160321164646_5315.png" />
+    <Content Include="Attachments\image\20160321\20160321165241_2182.png" />
+    <Content Include="Attachments\image\20160321\20160321165728_3995.png" />
+    <Content Include="Attachments\image\20160322\20160322094648_2597.png" />
+    <Content Include="Attachments\image\20160322\20160322094832_9592.png" />
+    <Content Include="Attachments\image\20160322\20160322095154_7463.png" />
+    <Content Include="Attachments\image\20160323\20160323094601_2593.png" />
+    <Content Include="Attachments\uimage\20150212.png" />
+    <Content Include="Attachments\uimage\20160125.jpg" />
+    <Content Include="Attachments\uimage\20160226.jpg" />
+    <Content Include="Configs\spring-config\Controllers.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Configs\spring-config\DAL.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Configs\spring-config\BLL.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Configs\spring-config\SessionInterceptor.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Configs\spring-config\Transaction.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CSS\Login.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\2017.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\Favicon.png" />
+    <Content Include="Images\gq.png" />
+    <Content Include="Images\icon-box.png" />
+    <Content Include="Images\Login\login-bg.png" />
+    <Content Include="Images\Login\login-bg1.png" />
+    <Content Include="Images\Login\login-code.png" />
+    <Content Include="Images\Login\login-form-bg.png" />
+    <Content Include="Images\Login\login-pwd.png" />
+    <Content Include="Images\Login\login-user.png" />
+    <Content Include="Images\MIS.jpg" />
+    <Content Include="Images\star-off.png" />
+    <Content Include="Images\star-on.png" />
+    <Content Include="Images\tg.png" />
+    <Content Include="Images\tongzhi.jpg" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\way.png" />
+    <Content Include="Images\wz_bg.jpg" />
+    <Content Include="Scripts\base\imagescss\announcement_16x16.png" />
+    <Content Include="Scripts\base\imagescss\bg_state.png" />
+    <Content Include="Scripts\base\imagescss\error.png" />
+    <Content Include="Scripts\base\imagescss\newtask_32x32.png" />
+    <Content Include="Scripts\base\imagescss\task_32x32.png" />
+    <Content Include="Scripts\base\imagescss\userpwd_bg.png" />
+    <Content Include="Scripts\base\imagescss\username_bg.png" />
+    <Content Include="Images\massages-logo.png" />
+    <Content Include="Images\subtasks-logo.png" />
+    <Content Include="Attachments\uimage\tx.gif" />
+    <Content Include="Scripts\base\base.css" />
+    <Content Include="Scripts\base\base.js" />
+    <Content Include="Scripts\base\darktooltip.min.css" />
+    <Content Include="Scripts\base\imagescss\additem_32x32.png" />
+    <Content Include="Scripts\base\imagescss\blank.gif" />
+    <Content Include="Scripts\base\imagescss\border.png" />
+    <Content Include="Scripts\base\imagescss\cards_32x32.png" />
+    <Content Include="Scripts\base\imagescss\grid_32x32.png" />
+    <Content Include="Scripts\base\imagescss\head_bg.png" />
+    <Content Include="Scripts\base\imagescss\shad2.png" />
+    <Content Include="Scripts\base\imagescss\user.png" />
+    <Content Include="Scripts\base\imagescss\username_bg_old.png" />
+    <Content Include="Scripts\base\imagescss\userpwd_bg_old.png" />
+    <Content Include="Scripts\base\imagescss\user_32x32.png" />
+    <Content Include="Scripts\base\imagescss\zoom_16x16.png" />
+    <Content Include="Scripts\base\jquery.darktooltip.min.js" />
+    <Content Include="Scripts\base\jquery.raty.js" />
+    <Content Include="Scripts\boot.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-form.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\kindeditor\kindeditor-all-min.js" />
+    <Content Include="Scripts\kindeditor\kindeditor-all.js" />
+    <Content Include="Scripts\kindeditor\kindeditor-min.js" />
+    <Content Include="Scripts\kindeditor\kindeditor.js" />
+    <Content Include="Scripts\kindeditor\lang\ar.js" />
+    <Content Include="Scripts\kindeditor\lang\en.js" />
+    <Content Include="Scripts\kindeditor\lang\ko.js" />
+    <Content Include="Scripts\kindeditor\lang\zh_CN.js" />
+    <Content Include="Scripts\kindeditor\lang\zh_TW.js" />
+    <Content Include="Scripts\kindeditor\plugins\anchor\anchor.js" />
+    <Content Include="Scripts\kindeditor\plugins\autoheight\autoheight.js" />
+    <Content Include="Scripts\kindeditor\plugins\baidumap\baidumap.js" />
+    <Content Include="Scripts\kindeditor\plugins\baidumap\index.html" />
+    <Content Include="Scripts\kindeditor\plugins\baidumap\map.html" />
+    <Content Include="Scripts\kindeditor\plugins\clearhtml\clearhtml.js" />
+    <Content Include="Scripts\kindeditor\plugins\code\code.js" />
+    <Content Include="Scripts\kindeditor\plugins\code\prettify.css" />
+    <Content Include="Scripts\kindeditor\plugins\code\prettify.js" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\emoticons.js" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\0.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\1.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\10.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\100.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\101.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\102.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\103.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\104.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\105.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\106.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\107.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\108.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\109.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\11.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\110.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\111.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\112.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\113.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\114.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\115.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\116.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\117.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\118.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\119.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\12.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\120.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\121.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\122.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\123.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\124.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\125.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\126.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\127.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\128.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\129.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\13.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\130.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\131.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\132.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\133.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\134.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\14.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\15.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\16.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\17.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\18.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\19.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\2.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\20.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\21.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\22.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\23.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\24.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\25.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\26.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\27.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\28.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\29.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\3.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\30.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\31.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\32.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\33.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\34.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\35.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\36.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\37.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\38.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\39.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\4.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\40.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\41.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\42.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\43.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\44.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\45.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\46.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\47.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\48.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\49.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\5.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\50.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\51.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\52.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\53.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\54.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\55.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\56.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\57.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\58.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\59.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\6.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\60.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\61.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\62.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\63.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\64.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\65.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\66.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\67.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\68.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\69.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\7.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\70.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\71.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\72.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\73.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\74.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\75.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\76.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\77.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\78.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\79.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\8.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\80.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\81.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\82.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\83.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\84.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\85.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\86.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\87.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\88.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\89.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\9.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\90.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\91.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\92.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\93.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\94.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\95.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\96.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\97.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\98.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\99.gif" />
+    <Content Include="Scripts\kindeditor\plugins\emoticons\images\static.gif" />
+    <Content Include="Scripts\kindeditor\plugins\filemanager\filemanager.js" />
+    <Content Include="Scripts\kindeditor\plugins\filemanager\images\file-16.gif" />
+    <Content Include="Scripts\kindeditor\plugins\filemanager\images\file-64.gif" />
+    <Content Include="Scripts\kindeditor\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="Scripts\kindeditor\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="Scripts\kindeditor\plugins\filemanager\images\go-up.gif" />
+    <Content Include="Scripts\kindeditor\plugins\flash\flash.js" />
+    <Content Include="Scripts\kindeditor\plugins\image\image.js" />
+    <Content Include="Scripts\kindeditor\plugins\image\images\align_left.gif" />
+    <Content Include="Scripts\kindeditor\plugins\image\images\align_right.gif" />
+    <Content Include="Scripts\kindeditor\plugins\image\images\align_top.gif" />
+    <Content Include="Scripts\kindeditor\plugins\image\images\refresh.png" />
+    <Content Include="Scripts\kindeditor\plugins\insertfile\insertfile.js" />
+    <Content Include="Scripts\kindeditor\plugins\lineheight\lineheight.js" />
+    <Content Include="Scripts\kindeditor\plugins\link\link.js" />
+    <Content Include="Scripts\kindeditor\plugins\map\map.html" />
+    <Content Include="Scripts\kindeditor\plugins\map\map.js" />
+    <Content Include="Scripts\kindeditor\plugins\media\media.js" />
+    <Content Include="Scripts\kindeditor\plugins\multiimage\images\image.png" />
+    <Content Include="Scripts\kindeditor\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="Scripts\kindeditor\plugins\multiimage\images\select-files-zh_CN.png" />
+    <Content Include="Scripts\kindeditor\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="Scripts\kindeditor\plugins\multiimage\multiimage.js" />
+    <Content Include="Scripts\kindeditor\plugins\pagebreak\pagebreak.js" />
+    <Content Include="Scripts\kindeditor\plugins\plainpaste\plainpaste.js" />
+    <Content Include="Scripts\kindeditor\plugins\preview\preview.js" />
+    <Content Include="Scripts\kindeditor\plugins\quickformat\quickformat.js" />
+    <Content Include="Scripts\kindeditor\plugins\table\table.js" />
+    <Content Include="Scripts\kindeditor\plugins\template\html\1.html" />
+    <Content Include="Scripts\kindeditor\plugins\template\html\2.html" />
+    <Content Include="Scripts\kindeditor\plugins\template\html\3.html" />
+    <Content Include="Scripts\kindeditor\plugins\template\template.js" />
+    <Content Include="Scripts\kindeditor\plugins\wordpaste\wordpaste.js" />
+    <Content Include="Scripts\kindeditor\themes\common\anchor.gif" />
+    <Content Include="Scripts\kindeditor\themes\common\blank.gif" />
+    <Content Include="Scripts\kindeditor\themes\common\flash.gif" />
+    <Content Include="Scripts\kindeditor\themes\common\loading.gif" />
+    <Content Include="Scripts\kindeditor\themes\common\media.gif" />
+    <Content Include="Scripts\kindeditor\themes\common\rm.gif" />
+    <Content Include="Scripts\kindeditor\themes\default\background.png" />
+    <Content Include="Scripts\kindeditor\themes\default\default.css" />
+    <Content Include="Scripts\kindeditor\themes\default\default.png" />
+    <Content Include="Scripts\kindeditor\themes\qq\editor.gif" />
+    <Content Include="Scripts\kindeditor\themes\qq\qq.css" />
+    <Content Include="Scripts\kindeditor\themes\simple\simple.css" />
+    <Content Include="Scripts\miniui\jquery.tmpl.js" />
+    <Content Include="Scripts\miniui\locale\en_US.js" />
+    <Content Include="Scripts\miniui\locale\zh_CN.js" />
+    <Content Include="Scripts\miniui\miniui.js" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\buttonedit\arrowbg.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\buttonedit\btn-hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\buttonedit\btn.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\buttonedit\icon3.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\buttonedit\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\button\button.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\button\disabled.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\button\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\button\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\calendar\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\grid\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\layout\east.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\layout\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\layout\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\layout\north.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\layout\south.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\layout\west.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\listbox\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\menu\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\menu\menu_bg.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\menu\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\navbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\pager\first.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\pager\last.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\pager\next.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\pager\prev.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\panel\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\splitter\splitter.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tabs\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tabs\tab.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\toolbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\treegrid\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\treegrid\expand.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\treegrid\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\collapseLine.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\expand.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\expandLine.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\firstAndlastcollapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\firstAndlastexpand.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\firstCollapseNode.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\firstExpandNode.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\lastCollapseNode.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\lastExpandNode.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\lastline.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\treeline.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\tree\treeNodeLine.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\images\window\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2003\skin.css" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\buttonedit\arrowbg.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\buttonedit\btn-hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\buttonedit\btn.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\buttonedit\icon3.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\buttonedit\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\button\button.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\button\disabled.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\button\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\button\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\calendar\months.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\grid\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\layout\east.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\layout\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\layout\north.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\layout\south.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\layout\west.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\listbox\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\menu\button.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\menu\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\menu\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\menu\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\navbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\pager\first.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\pager\last.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\pager\next.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\pager\prev.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\panel\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\toolbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\treegrid\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\treegrid\expand.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\treegrid\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\tree\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\tree\expand.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\tree\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\tree\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\images\window\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue2010\skin.css" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\arrow.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\arrow_down.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\arrow_up.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\btn-hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\btn.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\date.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\icon1.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\buttonedit\text-bg.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\button\button.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\button\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\button\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\calendar\button.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\calendar\footer.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\calendar\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\grid\footer.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\grid\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\layout\east.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\layout\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\layout\north.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\layout\south.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\layout\west.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\listbox\header.png" />
+    <Content Include="Scripts\miniui\themes\blue\images\menu\hmenu.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\menu\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\menu\menu-hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\menu\menu.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\menu\pressed.png" />
+    <Content Include="Scripts\miniui\themes\blue\images\navbar\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\navbar\expand.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\navbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\pager\first.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\pager\last.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\pager\next.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\pager\prev.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\panel\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tabs\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tabs\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tabs\tab.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\toolbar\toolbar.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tools\close.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tools\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tools\expand.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tools\max.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tools\restore.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\treegrid\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\treegrid\expand.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\treegrid\file.png" />
+    <Content Include="Scripts\miniui\themes\blue\images\treegrid\folder.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\treegrid\header.png" />
+    <Content Include="Scripts\miniui\themes\blue\images\tree\button.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tree\folder-open.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tree\folder.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tree\hover.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tree\leaf.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\tree\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\blue\images\window\header.gif" />
+    <Content Include="Scripts\miniui\themes\blue\skin.css" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\arrow.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\arrow_down.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\arrow_up.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\btn-hover.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\btn.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\date.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\icon1.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\buttonedit\text-bg.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\button\button.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\button\hover.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\button\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\calendar\button.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\calendar\footer.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\calendar\header.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\grid\footer.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\grid\header.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\layout\east.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\layout\header.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\layout\north.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\layout\south.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\layout\west.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\listbox\header.png" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\menu\hmenu.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\menu\hover.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\menu\menu-hover.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\menu\menu.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\menu\pressed.png" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\navbar\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\navbar\expand.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\navbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\pager\first.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\pager\last.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\pager\next.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\pager\prev.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\panel\header.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tabs\hover.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tabs\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tabs\tab.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\toolbar\toolbar.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tools\close.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tools\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tools\expand.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tools\max.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tools\restore.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\treegrid\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\treegrid\expand.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\treegrid\file.png" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\treegrid\folder.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\treegrid\header.png" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tree\button.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tree\folder-open.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tree\folder.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tree\hover.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tree\leaf.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\tree\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\images\window\header.gif" />
+    <Content Include="Scripts\miniui\themes\bootstrap\skin.css" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\button.png" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\close.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\date.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\down.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\error.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\filter.png" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\hover.png" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\icon1.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\icon2.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\pressed.png" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\up.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\buttonedit\_icon3.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\button\button.png" />
+    <Content Include="Scripts\miniui\themes\default\images\button\disabled.png" />
+    <Content Include="Scripts\miniui\themes\default\images\button\hover.png" />
+    <Content Include="Scripts\miniui\themes\default\images\button\icons.png" />
+    <Content Include="Scripts\miniui\themes\default\images\button\menu_arrow.png" />
+    <Content Include="Scripts\miniui\themes\default\images\button\pressed.png" />
+    <Content Include="Scripts\miniui\themes\default\images\button\split-allow-bottom.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\button\split_arrow.png" />
+    <Content Include="Scripts\miniui\themes\default\images\calendar\button.png" />
+    <Content Include="Scripts\miniui\themes\default\images\calendar\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\calendar\months.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\calendar\next.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\calendar\prev.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\datepicker\date.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\dragdrop\drop-add.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\dragdrop\drop-between.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\dragdrop\drop-no.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\dragdrop\drop-over.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\dragdrop\drop-under.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\dragdrop\drop-yes.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_blue_down.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_blue_left.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_blue_right.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_blue_up.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_red_down.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_red_left.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_red_right.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\arrow_red_up.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\baseline-milestone.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\constraint-finish.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\constraint-start.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\finished.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\gvdp.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\header.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\header_bg.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\milestone-red.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\milestone.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\ms-task.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\notes.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\offday.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\summary-top.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\summary.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\summary2.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\taskbg.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\taskbg2.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\taskstatus.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\title_bg.png" />
+    <Content Include="Scripts\miniui\themes\default\images\gantt\warning.png" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\col-move-bottom.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\col-move-top.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\dirty.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\footer.png" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\icons.png" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\loading.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\no.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\ok.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\resize.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\sort_asc.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\grid\sort_desc.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\layout\east.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\layout\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\layout\north.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\layout\south.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\layout\west.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\listbox\error.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\listbox\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\arrow.png" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\bottom-arrow.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\checked.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\hallow.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\hmenubg.png" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\item.png" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\menubg.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\pressed.png" />
+    <Content Include="Scripts\miniui\themes\default\images\menu\top-arrow.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\messagebox\icon-error.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\messagebox\icon-info.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\messagebox\icon-question.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\messagebox\icon-warning.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\messagebox\loading.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\mygantt\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\navbar\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\pager\first.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\pager\last.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\pager\next.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\pager\prev.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\pager\reload.png" />
+    <Content Include="Scripts\miniui\themes\default\images\panel\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\panel\resize.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\rgantt\bg.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\rgantt\cancel.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\rgantt\hdbg.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\rgantt\pc.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\rgantt\pc_03.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\splitter\buttons.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\splitter\mini-bottom.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\splitter\mini-left.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\splitter\mini-right.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\splitter\mini-top.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\splitter\resize.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\splitter\resize_h.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\btn.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\col-move-bottom.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\col-move-top.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\datagrid_header_bg.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\datagrid_row_collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\datagrid_row_expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\datagrid_sort_asc.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\datagrid_sort_desc.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\datagrid_title_bg.png" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\dirty.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\header-hover.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\header-pressed.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\header.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\invalid_line.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\loading.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\no.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\ok.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\rowselected.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\row_collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\row_expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\sort_asc.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\sort_desc.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supergrid\title_bg.png" />
+    <Content Include="Scripts\miniui\themes\default\images\supertree\arrows.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supertree\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supertree\expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supertree\file.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supertree\folder-open.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supertree\folder.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\supertree\loading.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tabs\allow_left.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tabs\allow_right.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tabs\close.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tabs\hover.png" />
+    <Content Include="Scripts\miniui\themes\default\images\tabs\tab.png" />
+    <Content Include="Scripts\miniui\themes\default\images\textboxlist\close.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\textboxlist\error.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\textboxlist\loading.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\textbox\error.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\toolbar\toolbar.png" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\close.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\max.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\min.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\refresh.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\restore.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tools\search.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tooltip\wait.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\treegrid\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\treegrid\expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\treegrid\file.png" />
+    <Content Include="Scripts\miniui\themes\default\images\treegrid\folder.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\treegrid\loading.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\arrows.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\button.png" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\collapseLine.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\expand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\expandLine.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\file.png" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\firstAndlastcollapse.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\firstAndlastexpand.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\firstCollapseNode.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\firstExpandNode.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\folder-open.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\folder.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\hover.png" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\lastCollapseNode.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\lastExpandNode.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\lastline.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\leaf.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\loading.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\radio_checked.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\radio_unchecked.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\treeline.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\tree\treeNodeLine.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\window\footer.png" />
+    <Content Include="Scripts\miniui\themes\default\images\window\header.png" />
+    <Content Include="Scripts\miniui\themes\default\images\_pager\first.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\_pager\last.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\_pager\next.gif" />
+    <Content Include="Scripts\miniui\themes\default\images\_pager\prev.gif" />
+    <Content Include="Scripts\miniui\themes\default\miniui.css" />
+    <Content Include="Scripts\miniui\themes\gray\images\buttonedit\button.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\buttonedit\error.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\buttonedit\hover.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\buttonedit\icon1.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\buttonedit\icon2.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\buttonedit\icon3.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\button\button.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\button\disabled.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\button\hover.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\button\menu_arrow.png" />
+    <Content Include="Scripts\miniui\themes\gray\images\button\split-allow-bottom.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\button\split_arrow.png" />
+    <Content Include="Scripts\miniui\themes\gray\images\calendar\button.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\calendar\months.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\calendar\next.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\calendar\prev.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\grid\list.png" />
+    <Content Include="Scripts\miniui\themes\gray\images\grid\loading.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\menu\arrow.png" />
+    <Content Include="Scripts\miniui\themes\gray\images\menu\checked.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\menu\hallow.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\menu\menubg.gif" />
+    <Content Include="Scripts\miniui\themes\gray\images\tools\close.gif" />
+    <Content Include="Scripts\miniui\themes\gray\skin.css" />
+    <Content Include="Scripts\miniui\themes\icons.css" />
+    <Content Include="Scripts\miniui\themes\icons\add.gif" />
+    <Content Include="Scripts\miniui\themes\icons\addfolder.gif" />
+    <Content Include="Scripts\miniui\themes\icons\addnew.gif" />
+    <Content Include="Scripts\miniui\themes\icons\cancel.gif" />
+    <Content Include="Scripts\miniui\themes\icons\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\icons\cut.png" />
+    <Content Include="Scripts\miniui\themes\icons\date.gif" />
+    <Content Include="Scripts\miniui\themes\icons\downgrade.gif" />
+    <Content Include="Scripts\miniui\themes\icons\download.gif" />
+    <Content Include="Scripts\miniui\themes\icons\edit.gif" />
+    <Content Include="Scripts\miniui\themes\icons\expand.gif" />
+    <Content Include="Scripts\miniui\themes\icons\filter.gif" />
+    <Content Include="Scripts\miniui\themes\icons\find.png" />
+    <Content Include="Scripts\miniui\themes\icons\folder-open.gif" />
+    <Content Include="Scripts\miniui\themes\icons\folder.gif" />
+    <Content Include="Scripts\miniui\themes\icons\goto.gif" />
+    <Content Include="Scripts\miniui\themes\icons\help.gif" />
+    <Content Include="Scripts\miniui\themes\icons\help.png" />
+    <Content Include="Scripts\miniui\themes\icons\lock.png" />
+    <Content Include="Scripts\miniui\themes\icons\new.gif" />
+    <Content Include="Scripts\miniui\themes\icons\no.png" />
+    <Content Include="Scripts\miniui\themes\icons\node.png" />
+    <Content Include="Scripts\miniui\themes\icons\noimage.gif" />
+    <Content Include="Scripts\miniui\themes\icons\nowait.gif" />
+    <Content Include="Scripts\miniui\themes\icons\ok.png" />
+    <Content Include="Scripts\miniui\themes\icons\open.gif" />
+    <Content Include="Scripts\miniui\themes\icons\print.gif" />
+    <Content Include="Scripts\miniui\themes\icons\redo.gif" />
+    <Content Include="Scripts\miniui\themes\icons\reload.png" />
+    <Content Include="Scripts\miniui\themes\icons\remove.gif" />
+    <Content Include="Scripts\miniui\themes\icons\save.gif" />
+    <Content Include="Scripts\miniui\themes\icons\search.gif" />
+    <Content Include="Scripts\miniui\themes\icons\sort.gif" />
+    <Content Include="Scripts\miniui\themes\icons\split.gif" />
+    <Content Include="Scripts\miniui\themes\icons\tip.png" />
+    <Content Include="Scripts\miniui\themes\icons\undo.gif" />
+    <Content Include="Scripts\miniui\themes\icons\unlock.gif" />
+    <Content Include="Scripts\miniui\themes\icons\upgrade.gif" />
+    <Content Include="Scripts\miniui\themes\icons\upload.gif" />
+    <Content Include="Scripts\miniui\themes\icons\user.png" />
+    <Content Include="Scripts\miniui\themes\icons\wait.gif" />
+    <Content Include="Scripts\miniui\themes\icons\warning.png" />
+    <Content Include="Scripts\miniui\themes\icons\zoomin.gif" />
+    <Content Include="Scripts\miniui\themes\icons\zoomout.gif" />
+    <Content Include="Scripts\miniui\themes\icons\_help.png" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\arrowbg.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\arrow_down.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\arrow_up.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\arrow_up_hover.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\arrow_up_pressed.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\btn-hover.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\btn.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\hover.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\icon3.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\buttonedit\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\button\button.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\button\disabled.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\button\hover.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\button\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\calendar\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\grid\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\layout\east.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\layout\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\layout\hover.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\layout\north.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\layout\south.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\layout\west.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\listbox\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\menu\hover.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\menu\menu_bg.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\menu\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\navbar\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\navbar\expand.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\navbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\pager\first.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\pager\last.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\pager\next.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\pager\prev.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\panel\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\splitter\splitter.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tabs\hover.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tabs\tab.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\toolbar\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\close.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\expand.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\max.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\min.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\refresh.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\resume.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tools\search.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\treegrid\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\treegrid\expand.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\treegrid\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\collapse.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\collapseLine.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\expand.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\expandLine.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\firstAndlastcollapse.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\firstAndlastexpand.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\firstCollapseNode.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\firstExpandNode.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\lastCollapseNode.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\lastExpandNode.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\lastline.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\pressed.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\treeline.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\tree\treeNodeLine.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\images\window\header.gif" />
+    <Content Include="Scripts\miniui\themes\olive2003\skin.css" />
+    <Content Include="Scripts\miniui\themes\default\portal.css" />
+    <Content Include="Scripts\miniui\Portal.js" />
+    <Content Include="Scripts\miniui\UserSelectWindow.js" />
+    <Content Include="Scripts\swfupload\swfupload.js" />
+    <Content Include="Scripts\swfupload\swfupload.swf" />
+    <Content Include="Scripts\swfupload\swfuploadbutton.swf" />
+    <Content Include="Scripts\swfupload\swfupload_f8.swf" />
+    <Content Include="Scripts\swfupload\swfupload_f9.swf" />
+    <Content Include="Scripts\tongji.js" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\2.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\3.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\4.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\5.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\6.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\7.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\8.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\diy\9.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\loading.gif" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-001.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-002.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-003.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-004.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-005.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-006.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-007.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-008.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-009.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-010.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-edit.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-edit1.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-edit2.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-home-close.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-home-open.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-home.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeIcon\ztree-line.png" />
+    <Content Include="Scripts\zTree\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.all-3.5.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.all-3.5.min.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.core-3.5.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.core-3.5.min.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.excheck-3.5.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.excheck-3.5.min.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.exedit.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
+    <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="TeamView\TeamViewer_V11.0.53254_Setup.exe" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Scripts\miniui\themes\gray\images\layout\" />
+    <Folder Include="Scripts\miniui\themes\gray\images\panel\" />
+    <Folder Include="Scripts\miniui\themes\gray\images\splitter\" />
+    <Folder Include="Scripts\miniui\themes\gray\images\tabs\" />
+    <Folder Include="Scripts\miniui\themes\gray\images\treegrid\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configs\ibatisConfig\Providers.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Configs\ibatisConfig\SqlMapMySql.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Masters\Base.Master" />
+    <Content Include="Masters\BaseMdl.master" />
+    <Content Include="Areas\WUCSM\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Images\02数据安全管理须知180516.pdf" />
+    <None Include="Images\关于2018春节期间确保商场系统运行稳定的通知.pdf" />
+    <None Include="Scripts\miniui\themes\blue2003\images\button\Thumbs.db" />
+    <None Include="Scripts\miniui\themes\blue2003\images\treegrid\Thumbs.db" />
+    <None Include="Scripts\miniui\themes\blue2003\images\tree\Thumbs.db" />
+    <None Include="Scripts\miniui\themes\blue2010\images\treegrid\Thumbs.db" />
+    <None Include="Scripts\miniui\themes\olive2003\images\buttonedit\Thumbs.db" />
+    <None Include="Scripts\miniui\themes\olive2003\images\tree\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{8A6E8822-39C4-470F-AEF5-5779CEB43C0B}</Project>
+      <Name>BLL %28BLL\BLL%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Model\Common.Model.csproj">
+      <Project>{6FB9D468-7B8F-48F3-AFDF-10445499BC9E}</Project>
+      <Name>Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{FA691B9F-4E93-4B23-B405-B18029249872}</Project>
+      <Name>DAL %28IBLL\DAL\DAL%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBLL\IBLL.csproj">
+      <Project>{526C9CC5-4A18-409A-B629-81637A139824}</Project>
+      <Name>IBLL %28IBLL\IBLL%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{4CE1F947-85EB-4287-A03A-49EB247535BB}</Project>
+      <Name>IDAL %28IDAL\IDAL%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDataAccess\IDataAccess.csproj">
+      <Project>{630E4E06-38FF-4429-A1DA-F20E9C9E746B}</Project>
+      <Name>IDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{B59D713B-0090-4058-895B-531F302F9FFE}</Project>
+      <Name>Models %28Models\Models%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Transaction\Transaction.csproj">
+      <Project>{201E177A-1577-40D5-8778-9B58560C3BEC}</Project>
+      <Name>Transaction %28Transaction\Transaction%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11222</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

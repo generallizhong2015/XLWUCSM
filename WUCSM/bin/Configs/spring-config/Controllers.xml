@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="LoginController" type="WUCSM.Areas.WUCSM.Controllers.LoginController,WUCSM" singleton="false">
+    <property name="UsersBLL" ref="UsersBLL"/>
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="UserPwrBLL" ref="UserPwrBLL"/>
+    <property name="MdlBLL" ref="MdlBLL"/>
+  </object>
+  <object id="RegController" type="WUCSM.Areas.WUCSM.Controllers.RegController,WUCSM" singleton="false">
+    <property name="UsersBLL" ref="UsersBLL"/>
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="CusOrgBLL" ref="CusOrgBLL"/>
+  </object>
+  <object id="UserController" type="WUCSM.Areas.WUCSM.Controllers.UserController,WUCSM" singleton="false">
+    <property name="UsersBLL" ref="UsersBLL"/>
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="CusOrgBLL" ref="CusOrgBLL"/>
+    <property name="PwrBLL" ref="PwrBLL"/>
+    <property name="MdlBLL" ref="MdlBLL"/>
+    <property name="UserPwrBLL" ref="UserPwrBLL"/>
+  </object>
+  <object id="UserGrpController" type="WUCSM.Areas.WUCSM.Controllers.UserGrpController,WUCSM" singleton="false">
+    <property name="UsersBLL" ref="UsersBLL"/>
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="CusOrgBLL" ref="CusOrgBLL"/>
+    <property name="PwrBLL" ref="PwrBLL"/>
+    <property name="MdlBLL" ref="MdlBLL"/>
+    <property name="UserPwrBLL" ref="UserPwrBLL"/>
+  </object>
+
+  <!--FastQueryController-->
+  <object id="FastQueryController" type="WUCSM.Areas.WUCSM.Controllers.FastQueryController,WUCSM" singleton="false">
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="UsersBLL" ref="UsersBLL"/>
+  </object>
+  <!--SordController-->
+  <object id="SordController" type="WUCSM.Areas.WUCSM.Controllers.SordController,WUCSM" singleton="false">
+    <property name="SttCfgBLL" ref="SttCfgBLL"/>
+    <property name="SordBLL" ref="SordBLL"/>
+    <property name="SordDtlBLL" ref="SordDtlBLL"/>
+    <property name="ApprBLL" ref="ApprBLL"/>
+    <property name="NtcPubBLL" ref="NtcPubBLL"/>
+    <property name="UsersBLL" ref="UsersBLL"/>
+    <property name="UserCusBLL" ref="UserCusBLL"/>
+  </object>
+  <object id="NtcPubController" type="WUCSM.Areas.WUCSM.Controllers.NtcPubController,WUCSM" singleton="false">
+    <property name="NtcPubBLL" ref="NtcPubBLL"/>
+    <property name="CusBLL" ref="CusBLL"/>
+  </object>
+  <object id="UserInfController" type="WUCSM.Areas.WUCSM.Controllers.UserInfController,WUCSM" singleton="false">
+    <property name="SttCfgBLL" ref="SttCfgBLL"/>
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="UsersBLL" ref="UsersBLL"/>
+  </object>
+  <object id="CusController" type="WUCSM.Areas.WUCSM.Controllers.CusController,WUCSM" singleton="false">
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="CusOrgBLL" ref="CusOrgBLL"/>
+    <property name="UsersBLL" ref="UsersBLL"/>
+  </object>
+
+  <object id="UserCusController" type="WUCSM.Areas.WUCSM.Controllers.UserCusController,WUCSM" singleton="false">
+    <property name="UsersBLL" ref="UsersBLL"/>
+    <property name="CusBLL" ref="CusBLL"/>
+    <property name="UserCusBLL" ref="UserCusBLL"/>
+  </object>
+
+  <object id="NtcPbuExternalController" type="WUCSM.Areas.WUCSM.Controllers.NtcPbuExternalController,WUCSM" singleton="false">
+    <property name="NtcPubBLL" ref="NtcPubBLL"/>
+  </object>
+
+  <object id="CusApprController" type="WUCSM.Areas.WUCSM.Controllers.CusApprController,WUCSM" singleton="false">
+    <property name="CusApprBLL" ref="CusApprBLL"/>
+    <property name="SordBLL" ref="SordBLL"/>
+  </object>
+
+</objects>

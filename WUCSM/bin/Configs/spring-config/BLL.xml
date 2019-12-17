@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <!--UsersBLL-->
+  <object id="UsersBLL" type="BLL.UsersBLL,BLL">
+    <property name="UsersDAL" ref="UsersDAL"/>
+    <property name="MdlDAL" ref="MdlDAL"/>
+    <property name="UserPwrDAL" ref="UserPwrDAL"/>
+  </object>
+  <!--UserPwrBLL-->
+  <object id="UserPwrBLL" type="BLL.UserPwrBLL,BLL">
+    <property name="UserPwrDAL" ref="UserPwrDAL"/>
+  </object>
+  <!--PwrBLL-->
+  <object id="PwrBLL" type="BLL.PwrBLL,BLL">
+    <property name="PwrDAL" ref="PwrDAL"/>
+  </object>
+  <!--MdlBLL-->
+  <object id="MdlBLL" type="BLL.MdlBLL,BLL">
+    <property name="MdlDAL" ref="MdlDAL"/>
+  </object>
+  <!--NtcPubBLL-->
+  <object id="NtcPubBLL" type="BLL.NtcPubBLL,BLL">
+    <property name="NtcPubDAL" ref="NtcPubDAL"/>
+  </object>
+  <!--ApprBLL-->
+  <object id="ApprBLL" type="BLL.ApprBLL,BLL">
+    <property name="ApprDAL" ref="ApprDAL"/>
+  </object>
+  <!--SordBLL-->
+  <object id="SordBLL" type="BLL.SordBLL,BLL">
+    <property name="SordDAL" ref="SordDAL"/>
+    <property name="SordDtlDAL" ref="SordDtlDAL"/>
+    <property name="SttCfgDAL" ref="SttCfgDAL"/>
+    <property name="TaskDealDAL" ref="TaskDealDAL"/>
+    <property name="ApprDAL" ref="ApprDAL"/>
+  </object>
+  <!--SordDtlBLL-->
+  <object id="SordDtlBLL" type="BLL.SordDtlBLL,BLL">
+    <property name="SordDtlDAL" ref="SordDtlDAL"/>
+  </object>
+  <!--SttCfgBLL-->
+  <object id="SttCfgBLL" type="BLL.SttCfgBLL,BLL">
+    <property name="SttCfgDAL" ref="SttCfgDAL"/>
+  </object>
+  <!--CusBLL-->
+  <object id="CusBLL" type="BLL.CusBLL,BLL">
+    <property name="CusDAL" ref="CusDAL"/>
+  </object>
+  <!--UserCusBLL-->
+  <object id="UserCusBLL" type="BLL.UserCusBLL,BLL">
+    <property name="UserCusDAL" ref="UserCusDAL"/>
+  </object>
+  <!--CusOrgBLL-->
+  <object id="CusOrgBLL" type="BLL.CusOrgBLL,BLL">
+    <property name="CusOrgDAL" ref="CusOrgDAL"/>
+  </object>
+  
+  <object id="CusApprBLL" type="BLL.CusApprBLL,BLL">
+    <property name="CusApprDAL" ref="CusApprDAL"/>
+  </object>
+</objects>

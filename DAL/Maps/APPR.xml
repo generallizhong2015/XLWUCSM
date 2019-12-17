@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="appr_map" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="appr" assembly="Models.dll" type="Models.APPR" />
+  </alias>
+  <resultMaps>
+    <resultMap id="appr_result" class="appr">
+      <result property="APPRID" column="APPRID"/>
+      <result property="ORDNO" column="ORDNO"/>
+      <result property="APPRTXT" column="APPRTXT"/>
+      <result property="APPRDT" column="APPRDT"/>
+      <result property="DGR" column="DGR"/>
+      <result property="CHKFLG" column="CHKFLG"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="appr_select" parameterClass="System.Collections.IDictionary" resultClass="appr">
+      select a.APPRID,a.ORDNO,a.APPRTXT,a.APPRDT,a.DGR,a.CHKFLG from appr a
+      <dynamic prepend="where">
+        <isNotEmpty prepend="and" property="APPRID">
+          a.apprid=#APPRID#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="ORDNO">
+          a.ordno=#ORDNO#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    <insert id="appr_insert" parameterClass="appr">
+      insert into appr
+      (ordno,apprtxt,apprdt,dgr,chkflg)
+      values(#ORDNO#,#APPRTXT#,#APPRDT#,#DGR#,#CHKFLG#)
+    </insert>
+    <update id="appr_update" parameterClass="appr">
+      update appr
+      set ordno=#ORDNO#,apprtxt=#APPRTXT#,apprdt=#APPRDT#,dgr=#DGR#,chkflg=#CHKFLG#
+      where apprid = #APPRID#
+    </update>
+    <delete id="appr_delete" parameterClass="appr">
+      delete from appr
+      where apprid = #APPRID#
+    </delete>
+  </statements>
+</sqlMap>

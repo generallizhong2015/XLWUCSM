@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="TASKDEAL_MAP" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="TASKDEAL" assembly="Models.dll" type="Models.TASKDEAL" />
+  </alias>
+  <resultMaps>
+    <resultMap id="TASKDEAL_RESULT" class="TASKDEAL">
+      <result property="DEALID" column="DEALID"/>
+      <result property="ORDNO" column="ORDNO"/>
+      <result property="NODID" column="NODID"/>
+      <result property="PRCDT" column="PRCDT"/>
+      <result property="PRCR" column="PRCR"/>
+      <result property="PRCRNAME" column="PRCRNAME"/>
+      <result property="BRF" column="BRF"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="TASKDEAL_SELECT" parameterClass="System.Collections.IDictionary" resultClass="TASKDEAL">
+      SELECT T.DEALID AS DEALID,T.ORDNO AS ORDNO, T.NODID AS NODID, T.PRCDT AS PRCDT, T.PRCR AS PRCR,
+      (SELECT U.USERNAME FROM USERS U WHERE U.USERID=T.PRCR) AS PRCRNAME,
+      T.BRF AS BRF
+      FROM taskdeal T
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="ORDNO">
+          T.ORDNO=#ORDNO#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="NODID">
+          T.NODID=#NODID#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    <insert id="TASKDEAL_INSERT" parameterClass="TASKDEAL">
+      INSERT INTO TASKDEAL
+      (ORDNO,NODID,PRCDT,PRCR,BRF)
+      VALUES(#ORDNO#,#NODID#,#PRCDT#,#PRCR#,#BRF#)
+    </insert>
+    <update id="TASKDEAL_UPDATE" parameterClass="TASKDEAL">
+      UPDATE NTCPUB
+      SET DEALID=#DEALID#,ORDNO=#ORDNO#,NODID=#NODID#,PRCDT=#PRCDT#,PRCR=#PRCR#,BRF=#BRF#
+      WHERE DEALID = #DEALID#
+    </update>
+    <delete id="TASKDEAL_DELETE" parameterClass="TASKDEAL">
+      DELETE FROM TASKDEAL
+      WHERE DEALID = #DEALID#
+    </delete>
+  </statements>
+</sqlMap>

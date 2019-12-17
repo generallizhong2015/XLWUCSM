@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CUSORG_MAP" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="CUSORG" assembly="Models.dll" type="Models.CUSORG" />
+  </alias>
+  <resultMaps>
+    <resultMap id="CUSORG_RESULT" class="CUSORG">
+      <result property="CUSID" column="CUSID"/>
+      <result property="CUSORGID" column="CUSORGID"/>
+      <result property="CUSORGNAME" column="CUSORGNAME"/>
+      <result property="LNKR" column="LNKR"/>
+      <result property="ADR" column="ADR"/>
+      <result property="TEL" column="TEL"/>
+      <result property="STT" column="STT"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="CUSORG_SELECT" parameterClass="System.Collections.IDictionary" resultClass="CUSORG">
+      SELECT C.CUSID AS CUSID, C.CUSORGID AS CUSORGID, C.CUSORGNAME AS CUSORGNAME,C.LNKR AS LNKR, C.ADR AS ADR, C.TEL AS TEL, C.STT AS STT
+      FROM CUSORG C
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="CUSID">
+          CUSID=#CUSID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSORGID">
+          CUSORGID=#CUSORGID#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+
+    <select id="CUSORG_SELECTCUSORGID" parameterClass="System.Collections.IDictionary" resultClass="String">
+      SELECT MAX(C.CUSORGID) FROM CUSORG C
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="CUSID">
+          CUSID=#CUSID#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    <insert id="CUSORG_INSERT" parameterClass="CUSORG">
+      INSERT INTO CUSORG
+      (CUSID,CUSORGID,ADR,CUSORGNAME,LNKR,STT,TEL)
+      VALUES(#CUSID#,#CUSORGID#,#ADR#,#CUSORGNAME#,#LNKR#,#STT#,#TEL#)
+    </insert>
+    <update id="CUSORG_UPDATE" parameterClass="CUSORG">
+      UPDATE CUSORG
+      SET CUSID=#CUSID#,CUSORGID=#CUSORGID#,CUSORGNAME=#CUSORGNAME#,ADR=#ADR#,LNKR=#LNKR#,STT=#STT#,TEL=#TEL#
+      WHERE CUSID = #CUSID# AND CUSORGID=#CUSORGID#
+    </update>
+    <delete id="CUSORG_DELETE" parameterClass="CUSORG">
+      DELETE FROM CUSORG
+      WHERE CUSID = #CUSID# AND CUSORGID=#CUSORGID#
+    </delete>
+  </statements>
+</sqlMap>

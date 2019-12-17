@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="NTCPUB_MAP" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="NTCPUB" assembly="Models.dll" type="Models.NTCPUB" />
+  </alias>
+  <resultMaps>
+    <resultMap id="NTCPUB_RESULT" class="NTCPUB">
+      <result property="NTCPUBNO" column="NTCPUBNO"/>
+      <result property="DISDT" column="DISDT"/>
+      <result property="ISVLD" column="ISVLD"/>
+      <result property="NTCTXT" column="NTCTXT"/>
+      <result property="NTCCUS" column="NTCCUS"/>
+      <result property="STT" column="STT"/>
+      <result property="MKR" column="MKR"/>
+      <result property="MKRNAME" column="MKRNAME"/>
+      <result property="MKDTT" column="MKDTT"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <sql id="sql_count">SELECT COUNT(*)</sql>
+    <sql id="sql_select">SELECT N.*,(SELECT USERNAME  FROM USERS U WHERE n.MKR=U.USERID) AS MKRNAME</sql>
+    <sql id="sql_where">
+      FROM ntcpub N
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="NTCPUBNO">
+          NTCPUBNO=#NTCPUBNO#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="SPUBDT">
+          #SPUBDT# BETWEEN PUBDT AND DISDT
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="ISVLD">
+          ISVLD=#ISVLD#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="STT">
+          STT=#STT#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="NTCTXT">
+          NTCTXT LIKE '%$NTCTXT$%'
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSID">
+          (N.NTCCUS LIKE '%$CUSID$%' OR N.NTCCUS IS NULL OR N.NTCCUS='')
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    <sql id="sql_page">
+      <dynamic prepend="">
+        <isNotEmpty property="SORTFIELD">
+          <isNotEmpty property="SORTORDER">
+            ORDER BY $SORTFIELD$ $SORTORDER$
+          </isNotEmpty>
+        </isNotEmpty>
+        <isNotEmpty property="BEGIN">
+          <isNotEmpty property="PAGESIZE">
+            LIMIT #BEGIN#,#PAGESIZE#
+          </isNotEmpty>
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    <select id="NTCPUB_SELECT" parameterClass="System.Collections.IDictionary" resultClass="NTCPUB">
+      <include refid="sql_select"/>
+      <include refid="sql_where"/>
+      <include refid="sql_page"/>
+    </select>
+    <select id="NTCPUB_SELECT_RECORDCOUNT" parameterClass="System.Collections.IDictionary" resultClass="int">
+      <include refid="sql_count"/>
+      <include refid="sql_where"/>
+    </select>
+    <select id="NTCPUB_SELECTPUBNO" resultClass="String">
+      SELECT MAX(N.NTCPUBNO) FROM NTCPUB N WHERE DATE(N.MKDTT)=CURDATE()
+    </select>
+    <insert id="NTCPUB_INSERT" parameterClass="NTCPUB">
+      INSERT INTO NTCPUB
+      (NTCPUBNO,PUBDT,DISDT,ISVLD,NTCTXT,NTCCUS,STT,MKR,MKDTT)
+      VALUES(#NTCPUBNO#,#PUBDT#,#DISDT#,#ISVLD#,#NTCTXT#,#NTCCUS#,#STT#,#MKR#,#MKDTT#)
+    </insert>
+    <update id="NTCPUB_UPDATE" parameterClass="NTCPUB">
+      UPDATE NTCPUB
+      SET NTCPUBNO=#NTCPUBNO#,PUBDT=#PUBDT#,DISDT=#DISDT#,ISVLD=#ISVLD#,NTCTXT=#NTCTXT#,NTCCUS=#NTCCUS#,STT=#STT#,MKR=#MKR#,MKDTT=#MKDTT#
+      WHERE NTCPUBNO = #NTCPUBNO#
+    </update>
+    <delete id="NTCPUB_DELETE" parameterClass="NTCPUB">
+      DELETE FROM NTCPUB
+      WHERE NTCPUBNO = #NTCPUBNO#
+    </delete>
+  </statements>
+</sqlMap>

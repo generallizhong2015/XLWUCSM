@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="userpwr_map" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="userpwr" assembly="Models.dll" type="Models.USERPWR" />
+  </alias>
+  <resultMaps>
+    <resultMap id="userpwr_result" class="userpwr">   
+      		<result property="USERID" column="USERID"/>
+			<result property="MDLID" column="MDLID"/>
+			<result property="PWRID" column="PWRID"/>
+	</resultMap>
+  </resultMaps>
+  <statements>
+
+      <select id="userpwr_select" parameterClass="System.Collections.IDictionary" resultClass="userpwr">
+        select USERID,MDLID,PWRID from userpwr
+        <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="USERID">
+          USERID=#USERID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="MDLID">
+          MDLID=#MDLID#
+        </isNotEmpty>
+          <isNotEmpty prepend="AND" property="PWRID">
+            PWRID=#PWRID#
+          </isNotEmpty>
+      </dynamic>
+      </select>
+      <insert id="userpwr_insert" parameterClass="userpwr">
+        insert into userpwr
+        (USERID,MDLID,PWRID)
+        values(#USERID#,#MDLID#,#PWRID#)
+      </insert>
+      <update id="userpwr_update" parameterClass="userpwr">
+        update userpwr
+        set USERID=#USERID#,MDLID=#MDLID#,PWRID=#PWRID# 
+		where USERID=#USERID#
+       </update>
+      <delete id="userpwr_delete" parameterClass="userpwr">
+        delete from userpwr
+        where USERID=#USERID#
+       </delete>
+  </statements>
+</sqlMap>

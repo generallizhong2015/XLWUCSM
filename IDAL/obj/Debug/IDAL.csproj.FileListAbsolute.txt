@@ -1,0 +1,13 @@
+D:\新留言平台\Source\WUCSM\IDAL\bin\Debug\IDAL.dll
+D:\新留言平台\Source\WUCSM\IDAL\bin\Debug\IDAL.pdb
+D:\新留言平台\Source\WUCSM\IDAL\bin\Debug\Models.dll
+D:\新留言平台\Source\WUCSM\IDAL\bin\Debug\Models.pdb
+D:\新留言平台\Source\WUCSM\IDAL\obj\Debug\IDAL.dll
+D:\新留言平台\Source\WUCSM\IDAL\obj\Debug\IDAL.pdb
+D:\新留言平台\Source\WUCSM\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+F:\zy\httpd\MySQL\WUCSM\IDAL\bin\Debug\IDAL.dll
+F:\zy\httpd\MySQL\WUCSM\IDAL\bin\Debug\IDAL.pdb
+F:\zy\httpd\MySQL\WUCSM\IDAL\bin\Debug\Models.dll
+F:\zy\httpd\MySQL\WUCSM\IDAL\bin\Debug\Models.pdb
+F:\zy\httpd\MySQL\WUCSM\IDAL\obj\Debug\IDAL.dll
+F:\zy\httpd\MySQL\WUCSM\IDAL\obj\Debug\IDAL.pdb

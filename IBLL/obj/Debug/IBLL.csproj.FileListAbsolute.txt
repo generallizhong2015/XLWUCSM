@@ -1,0 +1,14 @@
+D:\新留言平台\Source\WUCSM\IBLL\bin\Debug\IBLL.dll
+D:\新留言平台\Source\WUCSM\IBLL\bin\Debug\IBLL.pdb
+D:\新留言平台\Source\WUCSM\IBLL\bin\Debug\Models.dll
+D:\新留言平台\Source\WUCSM\IBLL\bin\Debug\Models.pdb
+D:\新留言平台\Source\WUCSM\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
+D:\新留言平台\Source\WUCSM\IBLL\obj\Debug\IBLL.dll
+D:\新留言平台\Source\WUCSM\IBLL\obj\Debug\IBLL.pdb
+F:\zy\httpd\MySQL\WUCSM\IBLL\bin\Debug\IBLL.dll
+F:\zy\httpd\MySQL\WUCSM\IBLL\bin\Debug\IBLL.pdb
+F:\zy\httpd\MySQL\WUCSM\IBLL\bin\Debug\Models.dll
+F:\zy\httpd\MySQL\WUCSM\IBLL\bin\Debug\Models.pdb
+F:\zy\httpd\MySQL\WUCSM\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
+F:\zy\httpd\MySQL\WUCSM\IBLL\obj\Debug\IBLL.dll
+F:\zy\httpd\MySQL\WUCSM\IBLL\obj\Debug\IBLL.pdb

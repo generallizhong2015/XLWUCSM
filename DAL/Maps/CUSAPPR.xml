@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CUSAPPR_MAP" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="CUSAPPR" assembly="Models.dll" type="Models.CUSAPPR" />
+  </alias>
+  <resultMaps>
+    <resultMap id="CUSAPPRResultMap" class="Models.CUSAPPR">
+      <result property="USERID" column="USERID"/>
+      <result property="USERNAME" column="USERNAME"/>
+      <result property="COUNT" column="COUNT"/>
+      <result property="ACCEPT_COUNT" column="ACCEPT_COUNT"/>
+      <result property="NACCEPT_COUNT" column="NACCEPT_COUNT"/>
+      <result property="UNTREATED_COUNT" column="UNTREATED_COUNT"/>
+      <result property="FIVEDGR" column="FIVEDGR"/>
+      <result property="FOURDGR" column="FOURDGR"/>
+      <result property="THREEDGR" column="THREEDGR"/>
+      <result property="TWODGR" column="TWODGR"/>
+      <result property="ONEDGR" column="ONEDGR"/>
+      <result property="NODGR" column="NODGR"/>
+      <result property="SDT" column="SDT"/>
+      <result property="EDT" column="EDT"/>
+    </resultMap>
+  </resultMaps>
+  
+  <statements>
+    <statement id="GetCUSAPPR" parameterClass="Hashtable" resultMap="CUSAPPRResultMap">
+      CALL GET_CUSAPPR(#USERIDS#,#SDT#,#EDT#)
+    </statement>
+  </statements>
+</sqlMap>

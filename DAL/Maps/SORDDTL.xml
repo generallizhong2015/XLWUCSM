@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="sorddtl_map" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="sorddtl" assembly="Models.dll" type="Models.SORDDTL" />
+  </alias>
+  <resultMaps>
+    <resultMap id="sorddtl_result" class="sorddtl">
+      <result property="ORDNO" column="ORDNO"/>
+      <result property="RCDIDX" column="RCDIDX"/>
+      <result property="SUBDT" column="SUBDT"/>
+      <result property="SUBTYP" column="SUBTYP"/>
+      <result property="SUBMAN" column="SUBMAN"/>
+      <result property="SUBTXT" column="SUBTXT"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="sorddtl_select" parameterClass="System.Collections.IDictionary" resultClass="sorddtl">
+      select sd.ORDNO,sd.RCDIDX,sd.SUBDT,sd.SUBTYP,sd.SUBMAN,
+      U.USERNAME AS SUBMANNAME,
+      U.PIC AS SUBMANPIC,
+      sd.SUBTXT from sorddtl sd,USERS U where U.USERID=sd.SUBMAN
+      <dynamic prepend="and">
+        <isNotEmpty prepend="and" property="ORDNO">
+          sd.ordno=#ORDNO#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="RCDIDX">
+          sd.rcdidx=#RCDIDX#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    <select id="sorddtl_selectmaxrcdidx" parameterClass="System.String" resultClass="System.String">
+      select max(rcdidx) from sorddtl where ordno=#ORDNO#
+    </select>
+    <insert id="sorddtl_insert" parameterClass="sorddtl">
+      insert into sorddtl
+      (ordno,rcdidx,subdt,subtyp,subman,subtxt)
+      values(#ORDNO#,#RCDIDX#,#SUBDT#,#SUBTYP#,#SUBMAN#,#SUBTXT#)
+    </insert>
+    <update id="sorddtl_update" parameterClass="sorddtl">
+      update sorddtl
+      set subdt=#SUBDT#,subtyp=#SUBTYP#,subman=#SUBMAN#,subtxt=#SUBTXT#
+      where ordno = #ORDNO# and rcdidx = #RCDIDX#
+    </update>
+    <delete id="sorddtl_delete" parameterClass="sorddtl">
+      delete from sorddtl
+      where ordno = #ORDNO# and rcdidx = #RCDIDX#
+    </delete>
+  </statements>
+</sqlMap>

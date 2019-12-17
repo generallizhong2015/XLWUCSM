@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Masters/Base.Master" AutoEventWireup="true"
+    CodeBehind="BaseMdl.master.cs" Inherits="WUCSM.Masters.BaseMdl" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <div style="width: 100%;">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="UserInfoContent" runat="server">
+    <ul class="mianmenu">
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <% 
+            string CurControllerName = Convert.ToString(Url.RequestContext.RouteData.Values["controller"]);
+            foreach (var MDL in Session["CurMdl"] as List<Models.MDL>)
+            {
+        %>
+        <li><a class="<%= MDL.BRF.Split('/').Contains(CurControllerName)?"cur":""%>" href="<%=MDL.BRF %>"
+            class="mymenuitem">
+            <%=MDL.MDLNAME %></a></li>
+        <%
+}
+        %>
+    </ul>
+    <div class="basehead_content_user">
+        <div class="userinfo-master" style="height: 22px;" title="<%=Session["CurCus"] != null ? (Session["CurCus"] as Models.CUS).CUSNAME : ""%>">
+            <%=Session["CurCus"] != null ? (Session["CurCus"] as Models.CUS).CUSNAME : ""%>
+        </div>
+        <div id="userinfo-name" data-tooltip="#userinfo-content" style="float: right;">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <img style="float: left; margin-right: 5px;" src="<%=Url.Content(string.IsNullOrEmpty(Session["CurUser"]!=null?(Session["CurUser"] as Models.USERS).PIC:"~/Images/user.png")?"~/Images/user.png":"~"+(Session["CurUser"]!=null?(Session["CurUser"] as Models.USERS).PIC:"~/Images/user.png"))%>" />
+                        <%=Session["CurUser"]!=null?(Session["CurUser"] as Models.USERS).USERNAME:"未登录"%>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="userinfo-content" style="display: none;">
+        <div>
+            <% 
+                foreach (var MDL in Session["CurMdl"] as List<Models.MDL>)
+                {
+            %>
+            <a href="<%=MDL.BRF %>" class="mymenuitem">
+                <%=MDL.MDLNAME %></a><br />
+            <%
+                }
+            %>
+            <a href="<%=Url.RouteUrl(new { controller="Login",action="OutLogin" ,area="WUCSM"}) %>"
+                class="mymenuitem">退出</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#userinfo-name').darkTooltip();
+        });
+    </script>
+</asp:Content>

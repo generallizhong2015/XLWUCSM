@@ -1,0 +1,9 @@
+D:\新留言平台\Source\WUCSM\Server\bin\Debug\Transaction.dll
+D:\新留言平台\Source\WUCSM\Server\bin\Debug\Transaction.pdb
+D:\新留言平台\Source\WUCSM\Transaction\obj\Debug\Transaction.dll
+D:\新留言平台\Source\WUCSM\Transaction\obj\Debug\Transaction.pdb
+D:\新留言平台\Source\WUCSM\Transaction\obj\Debug\Transaction.csprojResolveAssemblyReference.cache
+F:\zy\httpd\MySQL\WUCSM\Server\bin\Debug\Transaction.dll
+F:\zy\httpd\MySQL\WUCSM\Server\bin\Debug\Transaction.pdb
+F:\zy\httpd\MySQL\WUCSM\Transaction\obj\Debug\Transaction.dll
+F:\zy\httpd\MySQL\WUCSM\Transaction\obj\Debug\Transaction.pdb

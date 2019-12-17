@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="STTCFG_MAP" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="STTCFG" assembly="Models.dll" type="Models.STTCFG" />
+  </alias>
+  <resultMaps>
+    <resultMap id="STTCFG_RESULT" class="STTCFG">
+      <result property="NODTYP" column="NODTYP"/>
+      <result property="NODNAME" column="NODNAME"/>
+      <result property="NODDTSTT" column="NODDTSTT"/>
+      <result property="ISUSE" column="ISUSE"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="STTCFG_SELECT" parameterClass="System.Collections.IDictionary" resultClass="STTCFG">
+      SELECT S.NODTYP AS NODTYP, S.NODNAME AS NODNAME, S.NODDTSTT AS NODDTSTT, S.ISUSE AS ISUSE
+      FROM sttcfg S
+      <dynamic prepend="where">
+        <isNotEmpty prepend="and" property="NODTYP">
+          NODTYP=#NODTYP#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="NODDTSTT">
+          NODDTSTT=#NODDTSTT#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="ISUSE">
+          ISUSE=#ISUSE#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    <insert id="STTCFG_INSERT" parameterClass="STTCFG">
+      INSERT INTO STTCFG
+      (NODTYP,NODNAME,NODDTSTT,ISUSE)
+      VALUES(#NODTYP#,#NODNAME#,#NODDTSTT#,#ISUSE#)
+    </insert>
+    <update id="STTCFG_UPDATE" parameterClass="STTCFG">
+      UPDATE STTCFG
+      SET NODTYP=#NODTYP#,NODNAME=#NODNAME#,NODDTSTT=#NODDTSTT#,ISUSE=#ISUSE#
+      WHERE NODTYP = #NODTYP# AND NODDTSTT=#NODDTSTT#
+    </update>
+    <delete id="STTCFG_DELETE" parameterClass="STTCFG">
+      DELETE FROM STTCFG
+      WHERE NODTYP = #NODTYP# AND NODDTSTT=#NODDTSTT#
+    </delete>
+  </statements>
+</sqlMap>

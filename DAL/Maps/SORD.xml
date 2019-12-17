@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="sord_map" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="sord" assembly="Models.dll" type="Models.SORD" />
+  </alias>
+  <resultMaps>
+    <resultMap id="sord_result" class="sord">
+      <result property="ORDNO" column="ORDNO"/>
+      <result property="SUBDT" column="SUBDT"/>
+      <result property="SUBCUS" column="SUBCUS"/>
+      <result property="SUBCUSNAME" column="SUBCUSNAME"/>
+      <result property="SUBCUSTEL" column="SUBCUSTEL"/>
+      <result property="SUBMAN" column="SUBMAN"/>
+      <result property="SUBMANNAME" column="SUBMANNAME"/>
+      <result property="SUBMANMOVTEL" column="SUBMANMOVTEL"/>
+      <result property="SUBTXT" column="SUBTXT"/>
+      <result property="ECTIME" column="ECTIME"/>
+      <result property="SERTYP" column="SERTYP"/>
+      <result property="SERTYPNAME" column="SERTYPNAME"/>
+      <result property="IPADR" column="IPADR"/>
+      <result property="PRCMAN" column="PRCMAN"/>
+      <result property="PRCMANNAME" column="PRCMANNAME"/>
+      <result property="PRCDT" column="PRCDT"/>
+      <result property="PRCMTHRSTL" column="PRCMTHRSTL"/>
+      <result property="USRIMG" column="USRIMG"/>
+      <result property="SERSYS" column="SERSYS"/>
+      <result property="USRNUM" column="USRNUM"/>
+      <result property="USRPASS" column="USRPASS"/>
+      <result property="FAULT" column="FAULT"/>
+      <result property="STT" column="STT"/>
+      <result property="STTNAME" column="STTNAME"/>
+      <result property="LASTREPLYINF" column="LASTREPLYINF"/>
+      <result property="Tracer" column="Tracer"/>
+      <result property="Revisit" column="Revisit"/>
+      <result property="TracerStt" column="TracerStt"/>
+      <result property="RevisitStt" column="RevisitStt"/>
+      <result property="RevisitTxt" column="RevisitTxt"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <sql id="sql_count">select count(*)</sql>
+    <sql id="sql_select">
+      select s.ORDNO,s.SUBDT,s.SUBCUS,s.USRIMG,s.SERSYS,s.USRNUM,s.USRPASS,s.Tracer,s.Revisit,s.TracerStt,s.RevisitStt,s.RevisitTxt,
+      (SELECT C.CUSNAME FROM CUS C WHERE C.CUSID=s.SUBCUS) AS SUBCUSNAME,
+      (SELECT C.TEL FROM CUS C WHERE C.CUSID=s.SUBCUS) AS SUBCUSTEL,
+      s.SUBMAN,
+      (SELECT CONCAT_WS('|',IFNULL(SU.USERID,''),IFNULL(SU.USERNAME,''),IFNULL(SU.MOVTEL,''),IFNULL(SU.PIC,'')) FROM USERS SU WHERE SU.USERID=s.SUBMAN) AS SUBMANINF,
+      s.SUBTXT,s.ECTIME,s.SERTYP,
+      (SELECT ST.NODNAME FROM STTCFG ST WHERE ST.NODTYP='SERTYP' AND ST.NODDTSTT=s.SERTYP) AS SERTYPNAME,
+      s.IPADR,s.PRCMAN,s.PRCDT,
+      (SELECT CONCAT_WS('|',IFNULL(U.USERID,''),IFNULL(U.USERNAME,''),IFNULL(U.PIC,'')) FROM USERS U WHERE U.USERID=s.PRCMAN) AS PRCMANINF,
+      s.PRCMTHRSTL,s.STT,
+      (SELECT ST.NODNAME FROM STTCFG ST WHERE ST.NODTYP='STT' AND ST.NODDTSTT=s.STT) AS STTNAME,
+      (SELECT CONCAT_WS('|',date_format(SORDDTL.SUBDT,'%Y-%m-%d %T'),(SELECT CONCAT_WS('|',USERS.USERID,USERS.USERNAME) from USERS WHERE USERS.USERID=SORDDTL.SUBMAN)) FROM SORDDTL where SORDDTL.ORDNO= s.ORDNO ORDER BY SORDDTL.SUBDT DESC LIMIT 1) LASTREPLYINF
+    </sql>
+    <sql id="sql_where">
+      from sord s
+      <dynamic prepend="where">
+        <!--<isEmpty prepend="and" property="STT">
+          s.STT!="90"
+        </isEmpty>-->
+        <isNotEmpty prepend="and" property="Tracer">
+          s.Tracer=#Tracer#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="Revisit">
+          s.Revisit=#Revisit#
+        </isNotEmpty>
+
+        <isNotEmpty prepend="and" property="ORDNO">
+          s.ordno  LIKE '%$ORDNO$%'
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="SUBCUS">
+          s.subcus=#SUBCUS#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="SUBMAN">
+          s.subman=#SUBMAN#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="PRCMAN">
+          s.prcman=#PRCMAN#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="STT">
+          s.stt=#STT#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="ISDELETE">
+          s.isdelete=#ISDELETE#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="NOTSTT">
+          s.stt!=#NOTSTT#
+        </isNotEmpty>
+        <!--<isNotEmpty prepend="and" property="USERNAME">
+          s.PrcMan=#USERNAME#
+        </isNotEmpty>-->
+        <isNotEmpty prepend="and" property="SDT">
+            date(s.subdt) >= date(#SDT#)         
+        </isNotEmpty>
+        <isNotEmpty  prepend="and" property="EDT">
+          date(s.subdt) &lt;= date(#EDT#)
+        </isNotEmpty>
+        <!--<isNotNull prepend="and" property="SUBDT">
+          date(s.subdt) between date(#SDT#) and date(#EDT#)
+          
+          date(s.subdt) between date(#SDT#) and date(#EDT#)
+        </isNotNull>-->
+        <isNotEmpty prepend="and" property="USERID">
+          s.subcus in (select uc.cusid from usercus uc where uc.userid=#USERID#)
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="USERIDS">
+          s.subcus in (select uc.cusid from usercus uc where uc.userid in($USERIDS$))
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="DGR">
+          s.ordno in (select ordno from appr p where p.dgr=#DGR# and p.ordno in
+          (select ordno from sord s where  s.prcman=#V_USERID# and s.stt=90 AND s.isdelete=0  AND s.SUBDT BETWEEN date(#SDT#) and date(#EDT#)) )
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="NDGR">
+          s.prcman = #V_USERID# AND s.stt = 90  AND s.isdelete = 0 AND s.SUBDT BETWEEN date(#SDT#)
+           AND date(#EDT#)  AND s.ordno  NOT IN ( SELECT ordno FROM appr p)
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="V_STT">
+           s.STT=#V_STT# and (s.PRCMAN is null or s.PRCMAN='') AND s.isdelete = 0 AND s.SUBDT BETWEEN date(#SDT#)
+          AND date(#EDT#) and s.SUBCUS in (select u.CUSID from usercus u where u.userid=#V_USERID#)
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    <sql id="sql_page">
+      <dynamic prepend="">
+        <isNotEmpty property="SORTFIELD">
+          <isNotEmpty property="SORTORDER">
+            ORDER BY $SORTFIELD$ $SORTORDER$
+          </isNotEmpty>
+        </isNotEmpty>
+        <isNotEmpty property="BEGIN">
+          <isNotEmpty property="PAGESIZE">
+            LIMIT #BEGIN#,#PAGESIZE#
+          </isNotEmpty>
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    <select id="sord_select" parameterClass="System.Collections.IDictionary" resultClass="sord">
+      <include refid="sql_select"/>
+      <include refid="sql_where"/>
+      <include refid="sql_page"/>
+    </select>
+    <select id="sord_selectcount" parameterClass="System.Collections.IDictionary" resultClass="int">
+      <include refid="sql_count"/>
+      <include refid="sql_where"/>
+    </select>
+    <select id="sord_selectmaxno" parameterClass="System.String" resultClass="System.String">
+      select max(ordno) from sord where ordno like '$date$%'
+    </select>
+    <insert id="sord_insert" parameterClass="sord">
+      insert into sord
+      (ordno,subdt,subcus,subman,subtxt,ectime,sertyp,ipadr,prcman,prcmthrstl,stt,isdelete,prcdt,usrimg,sersys,usrnum,usrpass)
+      values(#ORDNO#,#SUBDT#,#SUBCUS#,#SUBMAN#,#SUBTXT#,#ECTIME#,#SERTYP#,#IPADR#,#PRCMAN#,#PRCMTHRSTL#,#STT#,0,#PRCDT#,#USRIMG#,#SERSYS#,#USRNUM#,#USRPASS#)
+    </insert>
+    <update id="sord_update" parameterClass="sord">
+      update sord
+      set  RevisitTxt=#RevisitTxt#,tracer=#Tracer#,revisit=#Revisit#,tracerstt=#TracerStt#,revisitstt=#RevisitStt#,subdt=#SUBDT#,subcus=#SUBCUS#,subman=#SUBMAN#,subtxt=#SUBTXT#,ectime=#ECTIME#,sertyp=#SERTYP#,prcman=#PRCMAN#,prcmthrstl=#PRCMTHRSTL#,stt=#STT#,prcdt=#PRCDT#,accdt=#ACCDT#,fault=#FAULT#
+      where ordno = #ORDNO#
+    </update>
+    <update id="sord_updateSord" parameterClass="sord">
+      update sord
+      set RevisitTxt=#RevisitTxt#,subcus=#SUBCUS#,subman=#SUBMAN#,subtxt=#SUBTXT#,ectime=#ECTIME#,sertyp=#SERTYP#,prcman=#PRCMAN#,prcmthrstl=#PRCMTHRSTL#,stt=#STT#,fault=#FAULT#
+      where ordno = #ORDNO#
+    </update>
+    <delete id="sord_delete" parameterClass="sord">
+      update sord set  isdelete=1 ,prcman=#PRCMAN# where ordno = #ORDNO#
+    </delete>
+  </statements>
+</sqlMap>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="pwr_map" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PWR" assembly="Models.dll" type="Models.PWR" />
+  </alias>
+  <resultMaps>
+    <resultMap id="pwr_result" class="PWR">
+      <result property="PWRID" column="PWRID"/>
+      <result property="PWRNAME" column="PWRNAME"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+
+    <select id="pwr_select" parameterClass="System.Collections.IDictionary" resultClass="PWR">
+      select PWRID,PWRNAME from pwr
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="PWRID">
+          PWRID=#PWRID#
+        </isNotEmpty>
+      </dynamic>
+    </select>
+    <insert id="pwr_insert" parameterClass="PWR">
+      insert into pwr
+      (PWRID,PWRNAME)
+      values(#PWRID#,#PWRNAME#)
+    </insert>
+    <update id="pwr_update" parameterClass="PWR">
+      update pwr
+      set PWRID=#PWRID#,PWRNAME=#PWRNAME#
+      where PWRID=#PWRID#
+    </update>
+    <delete id="pwr_delete" parameterClass="PWR">
+      delete from pwr
+      where PWRID=#PWRID#
+    </delete>
+  </statements>
+</sqlMap>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="USERCUS_MAP" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="USERCUS" assembly="Models.dll" type="Models.USERCUS" />
+  </alias>
+  <resultMaps>
+    <resultMap id="USERCUS_RESULT" class="USERCUS">
+      <result property="UCID" column="UCID"/>
+      <result property="USERID" column="USERID"/>
+      <result property="CUSID" column="CUSID"/>
+      <result property="CUSORGID" column="CUSORGID"/>
+    </resultMap>
+  </resultMaps>
+  USERCUS_SELECT_RECORDCOUNT
+  <statements>
+    <sql id="sql_count">SELECT COUNT(*)
+    </sql>
+    <sql id="sql_select">
+      SELECT U.UCID,U.USERID,U.CUSID,U.CUSORGID,C.CUSNAME,C.LNKR,C.TEL,
+      (SELECT S.USERNAME FROM USERS S WHERE S.USERID=U.USERID) AS USERNAME,
+      (SELECT CO.CUSORGNAME FROM CUSORG CO WHERE CO.CUSID=U.CUSID AND CO.CUSORGID=U.CUSORGID) AS CUSORGNAME
+    </sql>
+    <sql id="sql_where">
+      FROM USERCUS U LEFT JOIN CUS C ON C.CUSID=U.CUSID
+      <dynamic prepend="where">
+        <isNotEmpty prepend="AND" property="USERID">
+          USERID=#USERID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSID">
+          U.CUSID=#CUSID#
+        </isNotEmpty>
+        <isNotEmpty prepend="AND" property="CUSORGID">
+          CUSORGID=#CUSORGID#
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    <sql id="sql_page">
+      <dynamic prepend="">
+        <isNotEmpty property="SORTFIELD">
+          <isNotEmpty property="SORTORDER">
+            ORDER BY $SORTFIELD$ $SORTORDER$
+          </isNotEmpty>
+        </isNotEmpty>
+        <isNotEmpty property="BEGIN">
+          <isNotEmpty property="PAGESIZE">
+            LIMIT #BEGIN#,#PAGESIZE#
+          </isNotEmpty>
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    <select id="USERCUS_SELECT" parameterClass="System.Collections.IDictionary" resultClass="USERCUS">
+      <include refid="sql_select"/>
+      <include refid="sql_where"/>
+      <include refid="sql_page"/>
+    </select>
+    <select id="USERCUS_SELECT_RECORDCOUNT" parameterClass="System.Collections.IDictionary" resultClass="int">
+      <include refid="sql_count"/>
+      <include refid="sql_where"/>
+    </select>
+    <insert id="USERCUS_INSERT" parameterClass="USERCUS">
+      INSERT INTO USERCUS
+      (USERID,CUSID,CUSORGID)
+      VALUES(#USERID#,#CUSID#,#CUSORGID#)
+    </insert>
+    <update id="USERCUS_UPDATE" parameterClass="USERCUS">
+      UPDATE USERCUS
+      SET CUSID=#CUSID#,USERID=#USERID#,CUSORGID=#CUSORGID# WHERE UCID = #UCID#
+    </update>
+    <delete id="USERCUS_DELETE" parameterClass="USERCUS">
+      DELETE FROM USERCUS
+      WHERE UCID = #UCID#
+    </delete>
+  </statements>
+</sqlMap>
